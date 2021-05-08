@@ -1,4 +1,4 @@
-# https://leetcode.com/problems/count-and-say/
+# https://leetcode.com/problems/single-threaded-cpu/
 
 class Solution:
     def countAndSay(self, n: int) -> str:
