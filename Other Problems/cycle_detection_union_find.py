@@ -1,6 +1,6 @@
-# Cycle Detection Algorithm using Union Find Algorithm
+# Cycle Detection Algorithm using Union Find Algorithm with given list of edges.
 
-def unionFind(graph = [[1],[0,2,3],[1],[1,4],[3]]):
+def unionFind():
     parent = [-1]*5
     def findparent(node):
         if parent[node]==-1:
