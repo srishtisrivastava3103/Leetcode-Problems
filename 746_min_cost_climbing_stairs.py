@@ -55,5 +55,4 @@ class Solution:
                 dp[i] = cost[i]
             else:
                 dp[i] = min(cost[i]+dp[i-1],cost[i]+dp[i-2])
-        # print(dp)
         return dp[-1]
