@@ -12,3 +12,32 @@ class Solution:
                 return cost[i]
             return min(cost[i]+costing(i-1),cost[i]+costing(i-2))
         return costing(len(cost)-1)
+
+# We can use memoization in two ways
+
+# @lru_cache() decorator
+
+class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        cost+=[0]
+        @lru_cache()
+        def costing(i):
+            if i==0 or i==1:
+                return cost[i]
+            return min(cost[i]+costing(i-1),cost[i]+costing(i-2))
+        return costing(len(cost)-1)
+
+# Using memoization explicitly
+class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        cost+=[0]
+        dp = [-1]*(len(cost)+1)
+        def costing(i):
+            if i==0 or i==1:
+                return cost[i]
+            if dp[i]!=-1:
+                return dp[i]
+            
+            dp[i] = min(cost[i]+costing(i-1),cost[i]+costing(i-2))
+            return dp[i]
+        return costing(len(cost)-1)
